@@ -14,8 +14,9 @@
 
 echo "Start minikube : "
 
-minikube start --vm-driver=docker
+minikube start --vm-driver=virtualbox
 #minikube start --driver=docker
+
 
 echo "get additions : "
 

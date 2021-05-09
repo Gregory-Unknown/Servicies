@@ -18,17 +18,16 @@ FROM alpine:3.11.11
 
 #RUN apk update
 
-RUN echo "Install and Configure Supervisor"
-
-RUN apk add supervisor
-COPY ./supervisor.conf /etc/supervisor.conf
-
 RUN echo "Install and Configure Nginx"
 
 RUN apk add nginx
 RUN mkdir -p /run/nginx
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
+RUN echo "Install and Configure Supervisor"
+
+RUN apk add supervisor
+COPY ./supervisord.conf /etc/supervisord.conf
 RUN echo "Install and Configure SSL"
 
 RUN apk add openssl
@@ -50,5 +49,5 @@ RUN echo "Expose Port"
 EXPOSE 80 443
 
 RUN echo "Start Supervisor"
-CMD supervisord
-#CMD ["/usr/bin/supervisord", "-c", "/supervisor.conf"]
+ENTRYPOINT supervisord
+#CMD ["/usr/bin/supervisord"]

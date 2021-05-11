@@ -6,7 +6,7 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:57:59 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/11 13:36:45 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/11 16:57:38 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ echo "build images : "
 docker build -t ft_nginx srcs/nginx
 docker build -t ft_php srcs/php
 docker build -t ft_wp srcs/wp
+docker build -t ft_mysql srcs/mysql
 
 echo "Start services : "
 
@@ -39,6 +40,7 @@ kubectl apply -f srcs/metallb.yaml
 kubectl apply -f srcs/nginx.yaml
 kubectl apply -f srcs/php.yaml
 kubectl apply -f srcs/wp.yaml
+kubectl apply -f srcs/mysql.yaml
 
 echo "Start dashboards : "
 

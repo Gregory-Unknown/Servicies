@@ -6,13 +6,11 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:58:55 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/11 13:20:36 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/11 14:09:54 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM alpine:3.11.11
-
-#RUN echo -e "http://nl.alpinelinux.org/alpine/v3.12/main\nhttp://nl.alpinelinux.org/alpine/v3.12/community" > /etc/apk/repositories
 
 RUN echo "Install Utilities"
 
@@ -56,9 +54,13 @@ RUN apk add php7 php7-fpm php7-mysqli php7-mbstring php7-json php7-session\
 	fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix \
 	php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom
 
+RUN echo "Install DB"
+
+RUN apk add mysql mysql-client\
+    mariadb mariadb-common mariadb-client
+
 RUN echo "Expose Port"
 EXPOSE 80 443
 
 RUN echo "Start Supervisor"
 ENTRYPOINT supervisord
-#CMD ["/usr/bin/supervisord"]

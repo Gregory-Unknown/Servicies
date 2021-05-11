@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    setup.sh                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: esobchak <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:57:59 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/03 15:58:06 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/11 13:36:45 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,16 @@ eval $(minikube docker-env)
 
 echo "build images : "
 
-docker build -t nginx srcs/nginx
+docker build -t ft_nginx srcs/nginx
+docker build -t ft_php srcs/php
+docker build -t ft_wp srcs/wp
 
 echo "Start services : "
 
 kubectl apply -f srcs/metallb.yaml
 kubectl apply -f srcs/nginx.yaml
-
-kubectl get pods -l app=nginx
-kubectl get svc
+kubectl apply -f srcs/php.yaml
+kubectl apply -f srcs/wp.yaml
 
 echo "Start dashboards : "
 

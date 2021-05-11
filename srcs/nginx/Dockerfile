@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: esobchak <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:58:55 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/03 15:59:11 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/11 13:20:36 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,13 @@ FROM alpine:3.11.11
 
 #RUN echo -e "http://nl.alpinelinux.org/alpine/v3.12/main\nhttp://nl.alpinelinux.org/alpine/v3.12/community" > /etc/apk/repositories
 
-#RUN echo "Install Utilities"
+RUN echo "Install Utilities"
 
-#RUN apk update
+RUN apk update
+RUN apk add wget
+RUN apk add tar
+
+RUN mkdir -p /www
 
 RUN echo "Install and Configure Nginx"
 
@@ -44,6 +48,13 @@ RUN apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/comm
 	mkdir -p /etc/telegraf
 	#mv ./telegraf.conf /etc/telegraf/telegraf.conf
 COPY ./telegraf.conf /etc/telegraf/telegraf.conf
+
+RUN echo "Install PHP"
+
+RUN apk add php7 php7-fpm php7-mysqli php7-mbstring php7-json php7-session\
+	php7-common php7-iconv php7-gd php7-curl php7-xml php7-imap php7-cgi \
+	fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix \
+	php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom
 
 RUN echo "Expose Port"
 EXPOSE 80 443

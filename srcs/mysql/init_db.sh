@@ -6,7 +6,7 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/11 17:13:41 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/11 17:15:34 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/12 16:21:12 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ mariadb-install-db --user=root
 mysqld --user=root & sleep 10
 mysql --user=root --execute="CREATE DATABASE wordpress;"
 mysql --user=root wordpress < mysql.sql
-mysql --user=root --execute="CREATE USER 'groot'@'%' IDENTIFIED BY 'esobchak';
-							GRANT ALL PRIVILEGES ON *.* TO 'groot'@'%' WITH GRANT OPTION;
+mysql --user=root --execute="CREATE USER 'root'@'%' IDENTIFIED BY 'esobchak';
+							GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 							USE wordpress;
 							FLUSH PRIVILEGES;"
 

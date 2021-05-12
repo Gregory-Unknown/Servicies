@@ -6,11 +6,16 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 12:35:25 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/11 17:27:24 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/12 13:57:04 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM ft_nginx
+
+RUN echo "Install DB"
+
+RUN apk add mysql mysql-client\
+    mariadb mariadb-common mariadb-client
 
 RUN echo "Configure Supervisor"
 

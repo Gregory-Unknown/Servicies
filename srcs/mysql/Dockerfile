@@ -6,7 +6,7 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 12:35:25 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/12 13:57:04 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/13 13:13:33 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,4 +43,4 @@ EXPOSE 3306
 
 RUN echo "Start DB and Supervisor"
 
-ENTRYPOINT ./init_db.sh
+ENTRYPOINT sh init_db.sh

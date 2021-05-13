@@ -6,7 +6,7 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:57:59 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/12 17:06:12 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/13 10:46:15 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ echo "get docker daemon : "
 eval $(minikube docker-env)
 
 echo "build images : "
-docker build -t ft_alpine srcs/alpine
 docker build -t ft_nginx srcs/nginx
 docker build -t ft_php srcs/php
 docker build -t ft_wp srcs/wp

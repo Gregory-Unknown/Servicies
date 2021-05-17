@@ -6,22 +6,22 @@
 #    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 12:35:20 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/14 13:54:07 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/15 11:38:48 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM ft_nginx
 
-RUN echo "Configure Nginx"
+# Configure Nginx :
 
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
-RUN echo "Configure Supervisor"
+# Configure Supervisor :
 
 COPY ./supervisord.conf /etc/supervisord.conf
 
 
-Run echo "Install and Configure PhPmyAdmin"
+# Install and Configure PhPmyAdmin :
 
 RUN mkdir -p /run/php
 
@@ -32,12 +32,12 @@ RUN mv phpMyAdmin-5.1.0-all-languages/* /www/phpmyadmin/
 RUN rm -rf phpMyAdmin-5.1.0-all-languages
 COPY ./config.inc.php /www/phpmyadmin/
 
-RUN echo "Configure Telegraf"
+# Configure Telegraf :
 
 COPY ./telegraf.conf /etc/telegraf/telegraf.conf
 
-RUN echo "Expose Port"
+# Expose Port :
 EXPOSE 5000
 
-RUN echo "Start Supervisor"
+# Start Supervisor :
 ENTRYPOINT supervisord

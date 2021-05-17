@@ -4,7 +4,7 @@ metadata:
   labels:
     app: ftps
     owner: esobchak
-  name: esobchak
+  name: ftps
   annotations:
     metallb.universe.tf/allow-shared-ip: default
 spec:
@@ -25,10 +25,10 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps
   labels:
     app: ftps
     owner: esobchak
+  name: ftps
 spec:
   replicas: 1
   selector:

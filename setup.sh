@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    setup.sh                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
+#    By: esobchak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:57:59 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/15 11:33:35 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/18 17:48:34 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh
 
 # Start minikube :
-minikube start --vm-driver=virtualbox
+minikube start --vm-driver=docker
 
 # Get additions :
 
@@ -42,8 +42,8 @@ kubectl apply -f srcs/php.yaml
 kubectl apply -f srcs/wp.yaml
 kubectl apply -f srcs/mysql.yaml
 kubectl apply -f srcs/ftps.yaml
-kubectl apply -f srcs/grafana.yaml
 kubectl apply -f srcs/influxdb.yaml
+kubectl apply -f srcs/grafana.yaml
 
 # Start dashboards :
 

@@ -1,24 +1,15 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    metallb.yaml                                       :+:      :+:    :+:    #
+#    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: esobchak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/03 15:58:22 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/18 12:28:21 by esobchak         ###   ########.fr        #
+#    Created: 2021/05/18 12:51:45 by esobchak          #+#    #+#              #
+#    Updated: 2021/05/18 13:03:19 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  namespace: metallb-system
-  name: config
-data:
-  config: |
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 192.168.49.2-192.168.49.2
+FROM scratch
+ADD alpine-minirootfs-3.13.5-x86_64.tar.gz /
+CMD ["/bin/sh"]

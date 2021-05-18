@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    nginx.yaml                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+         #
+#    By: esobchak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 15:58:19 by esobchak          #+#    #+#              #
-#    Updated: 2021/05/10 16:37:28 by esobchak         ###   ########.fr        #
+#    Updated: 2021/05/18 12:28:33 by esobchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ spec:
   selector:
     app: nginx
   type: LoadBalancer
-  loadBalancerIP: 192.168.99.104
+  loadBalancerIP: 192.168.49.2
   ports:
     - port: 80
       name: http
